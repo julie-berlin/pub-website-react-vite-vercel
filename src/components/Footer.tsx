@@ -16,7 +16,6 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({
   companyName = 'eve.ai',
   email = 'hello@eve-insight.ai',
-  phone = '+1 (555) 123-4567',
   address = '',
   meetingLink = 'Schedule a Meeting',
   socialLinks = [],
