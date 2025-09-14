@@ -6,6 +6,7 @@ interface FooterProps {
   email?: string
   phone?: string
   address?: string
+  meetingLink?: string
   socialLinks?: {
     platform: string
     url: string
@@ -17,6 +18,7 @@ const Footer: React.FC<FooterProps> = ({
   email = 'hello@eve-insight.ai',
   phone = '+1 (555) 123-4567',
   address = '',
+  meetingLink = 'Schedule a Meeting',
   socialLinks = [],
 }) => {
   const currentYear = new Date().getFullYear()
@@ -33,11 +35,11 @@ const Footer: React.FC<FooterProps> = ({
           <div className="footer-section">
             <h4 className="footer-subtitle">Contact Information</h4>
             <div className="contact-info">
+              <a href="#" className="contact-link">
+                {meetingLink}
+              </a>
               <a href={`mailto:${email}`} className="contact-link">
                 {email}
-              </a>
-              <a href={`tel:${phone.replace(/\D/g, '')}`} className="contact-link">
-                {phone}
               </a>
               <address className="contact-address">{address}</address>
             </div>
