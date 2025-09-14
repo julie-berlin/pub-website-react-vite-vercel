@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import { useStore } from '@store/useStore'
+import Logo from './Logo'
 import './Header.css'
 
-interface HeaderProps {
-  logo?: string
-}
-
-const Header: React.FC<HeaderProps> = ({ logo = 'eve.ai' }) => {
+const Header: React.FC = () => {
   const { isMenuOpen, toggleMenu } = useStore()
   const [activeLink, setActiveLink] = useState('home')
 
@@ -27,8 +24,8 @@ const Header: React.FC<HeaderProps> = ({ logo = 'eve.ai' }) => {
     <header className="header">
       <div className="container">
         <nav className="nav" role="navigation" aria-label="Main navigation">
-          <a href="#home" className="logo">
-            {logo}
+          <a href="#home" className="logo-link">
+            <Logo width={90} height={64} />
           </a>
 
           <button

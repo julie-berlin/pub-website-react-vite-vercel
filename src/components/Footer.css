@@ -1,8 +1,10 @@
 .footer {
-  padding: 3rem 0 1rem;
-  background: var(--card-background);
+  padding: 4rem 0 2rem;
+  background: var(--section-background);
   border-top: 1px solid var(--border-color);
+  position: relative;
 }
+
 
 .footer-content {
   display: grid;
@@ -17,6 +19,20 @@
   gap: 1rem;
 }
 
+.footer-section:first-child {
+  align-items: flex-start;
+}
+
+.footer-section:first-child .logo {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section:first-child .logo-image {
+  width: 160px !important;
+  height: 120px !important;
+  max-width: none !important;
+}
+
 .footer-title {
   font-size: 1.75rem;
   font-weight: bold;
@@ -26,7 +42,8 @@
 
 .footer-tagline {
   color: var(--text-light);
-  font-style: italic;
+  font-style: normal;
+  font-size: 0.9rem;
 }
 
 .footer-subtitle {

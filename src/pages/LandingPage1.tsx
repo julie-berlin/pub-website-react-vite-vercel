@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from '@components/Header'
 import Hero from '@components/Hero'
+import DarkBanner from '@components/DarkBanner'
 import Services from '@components/Services'
 import Demo from '@components/Demo'
 import BusinessInfo from '@components/BusinessInfo'
@@ -19,119 +20,123 @@ const LandingPage1 = () => {
 
   const services = [
     {
-      id: 'ai-strategy',
-      title: 'AI Strategy Consulting',
-      description: 'Develop comprehensive AI strategies aligned with your business goals and objectives.',
-      icon: iconMap.aiStrategy,
-    },
-    {
-      id: 'ml-solutions',
-      title: 'Machine Learning Solutions',
-      description: 'Custom ML models designed to solve your specific business challenges.',
-      icon: iconMap.mlSolutions,
-    },
-    {
-      id: 'data-analytics',
-      title: 'Advanced Data Analytics',
-      description: 'Transform raw data into actionable insights with our advanced analytics platform.',
+      id: 'custom-dashboards',
+      title: 'Custom AI Dashboards',
+      description: 'Tailored to your business goals with LLM-powered natural language interfaces.',
       icon: iconMap.dataAnalytics,
     },
     {
-      id: 'automation',
-      title: 'Process Automation',
-      description: 'Streamline operations and reduce costs with intelligent automation solutions.',
+      id: 'image-recognition',
+      title: 'Image Recognition',
+      description: 'Advanced visual data analysis for extracting meaningful insights from images.',
+      icon: iconMap.computerVision,
+    },
+    {
+      id: 'data-analysis',
+      title: 'Data Analysis',
+      description: 'Delivering actionable, data-driven insights from your internal and external data.',
       icon: iconMap.automation,
     },
     {
-      id: 'nlp',
-      title: 'Natural Language Processing',
-      description: 'Leverage NLP to understand and process human language at scale.',
+      id: 'predictive-analytics',
+      title: 'Predictive Analytics & MLOps',
+      description: 'Solutions to boost profitability with advanced forecasting and machine learning operations.',
+      icon: iconMap.aiStrategy,
+    },
+    {
+      id: 'llm-solutions',
+      title: 'LLM Multi-Agent Solutions',
+      description: 'Customized for your industry using secure, enterprise-grade language models.',
       icon: iconMap.nlp,
     },
     {
-      id: 'cv',
-      title: 'Computer Vision',
-      description: 'Extract valuable insights from images and videos with our CV solutions.',
-      icon: iconMap.computerVision,
+      id: 'integration',
+      title: 'Data Integration',
+      description: 'Fusing internal systems with real-time external data for 360° business insights.',
+      icon: iconMap.mlSolutions,
     },
   ]
 
   const valueProps = [
     {
-      id: 'expertise',
-      title: 'Deep AI Expertise',
-      description: 'Our team consists of AI researchers and engineers from top institutions with proven track records.',
+      id: 'integration',
+      title: 'True Integration of Internal + External Data',
+      description: 'Unlike many AI tools that focus solely on internal data, we fuse your systems with real-time external data for contextual, actionable insights.',
     },
     {
-      id: 'results',
-      title: 'Proven Results',
-      description: 'We have helped over 100+ companies achieve measurable ROI through AI implementation.',
+      id: 'security',
+      title: 'LLM-Powered, But Secure & Responsible',
+      description: 'We use Azure-hosted or private LLMs ensuring enterprise-grade privacy without risking data exposure.',
     },
     {
-      id: 'support',
-      title: 'End-to-End Support',
-      description: 'From strategy to deployment and maintenance, we provide comprehensive support.',
+      id: 'conversational',
+      title: 'Conversational, Customizable Dashboards',
+      description: 'Our interfaces let users ask plain-language questions and get insights powered by live signals and historical context.',
     },
     {
-      id: 'innovation',
-      title: 'Cutting-Edge Innovation',
-      description: 'Stay ahead with access to the latest AI technologies and methodologies.',
+      id: 'experience',
+      title: 'Experience-Led Innovation',
+      description: 'Built with real-world decision-making in mind, offering solutions that align with operational goals, not just tech trends.',
     },
   ]
 
-  const handleHeroCTA = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const handleScheduleConsultation = () => {
-    window.open('https://calendly.com/eve-ai-consultation', '_blank')
+    window.location.href = 'mailto:kat@eve-insight.ai'
   }
 
   return (
     <div className="landing-page">
-      <Header logo="eve.ai" />
+      <Header />
 
       <Hero
-        title="Transform Your Business with AI"
-        subtitle="Unlock the power of artificial intelligence to drive innovation, efficiency, and growth"
-        ctaText="Get Started Today"
-        onCtaClick={handleHeroCTA}
+        title="Transform Your Business with Custom AI Solutions"
+        // subtitle="Connect the dots"
+        text="We build secure, tailored AI systems using your data to make smarter decisions faster. From intelligent automation to predictive insights and custom dashboards — <em>we deliver the competitive edge you need</em>."
+        ctaText="Book Your Strategy Call"
+        onCtaClick={handleScheduleConsultation}
+      />
+
+      <DarkBanner
+        title="Proven Results"
+        subtitle="Portfolio of Success"
+        text="We've helped businesses transform their operations with AI-powered solutions"
+        stats={[
+          { number: "50+", label: "Projects Delivered" },
+          { number: "95%", label: "Client Satisfaction" },
+          { number: "3x", label: "Average ROI" },
+          { number: "24/7", label: "Support" }
+        ]}
       />
 
       <Services
         services={services}
-        sectionTitle="Our AI Solutions"
-        sectionSubtitle="Comprehensive AI services tailored to your industry needs"
+        sectionTitle="Our AI Expertise, Your Advantage"
+        sectionSubtitle="Intelligent, tailored solutions that help businesses uncover meaningful insights"
       />
 
       <Demo
-        title="Experience AI in Action"
-        description="See how our AI solutions can transform your business processes"
-      />
-
-      <BusinessInfo
-        title="Why Choose eve.ai"
-        subtitle="Your trusted partner in AI transformation"
-        valueProps={valueProps}
+        title="Insight App"
+        description="Like having a business analyst, strategist, and researcher—on demand. Powered by LLMs and built for everyone."
       />
 
       <CTABanner
-        title="Ready to Transform Your Business?"
-        description="Schedule a free consultation with our AI experts and discover how we can help you achieve your goals"
-        buttonText="Schedule Consultation"
+        title="Ready to grow your business capabilities?"
+        description="Leverage our AI expertise to build custom solutions your business needs to stay ahead. We focus on security and actionable insights, not just AI trends."
+        buttonText="Book your free strategy session"
         onButtonClick={handleScheduleConsultation}
+      />
+
+      <BusinessInfo
+        title="Why Us"
+        subtitle="eve.ai is a women-owned AI company helping businesses uncover meaningful insights through intelligent, tailored solutions"
+        valueProps={valueProps}
       />
 
       <Footer
         companyName="eve.ai"
-        email="hello@eve-insight.ai"
-        phone="+1 (888) EVE-AI-00"
-        address="100 Innovation Drive, Silicon Valley, CA 94025"
-        socialLinks={[
-          { platform: 'LinkedIn', url: 'https://linkedin.com/company/eve-ai' },
-          { platform: 'Twitter', url: 'https://twitter.com/eve_ai' },
-          { platform: 'GitHub', url: 'https://github.com/eve-ai' },
-        ]}
+        email="betg@eve-insight.ai"
+        phone="katg@eve-insight.ai"
+        address="880 Harrison St, Leesburg, VA 20175"
       />
     </div>
   )

@@ -89,7 +89,7 @@ const LandingPage2 = () => {
 
   return (
     <div className="landing-page">
-      <Header logo="eve.ai" />
+      <Header />
 
       <Hero
         title="The Future of AI is Here"
