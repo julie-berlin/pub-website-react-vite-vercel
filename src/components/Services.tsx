@@ -1,10 +1,12 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import './Services.css'
 
 interface Service {
   id: string
   title: string
   description: string
-  icon?: string
+  icon?: IconProp | string | readonly [string, string]
 }
 
 interface ServicesProps {
@@ -28,7 +30,15 @@ const Services: React.FC<ServicesProps> = ({
         <div className="services-grid">
           {services.map((service) => (
             <div key={service.id} className="service-card">
-              {service.icon && <div className="service-icon">{service.icon}</div>}
+              {service.icon && (
+                <div className="service-icon">
+                  {typeof service.icon === 'string' ? (
+                    service.icon
+                  ) : (
+                    <FontAwesomeIcon icon={service.icon as IconProp} />
+                  )}
+                </div>
+              )}
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
             </div>
