@@ -1,4 +1,5 @@
 import './Footer.css'
+import Logo from './Logo'
 
 interface FooterProps {
   companyName?: string
@@ -13,9 +14,9 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({
   companyName = 'eve.ai',
-  email = 'contact@eve-insight.ai',
+  email = 'hello@eve-insight.ai',
   phone = '+1 (555) 123-4567',
-  address = '123 AI Boulevard, Tech City, TC 12345',
+  address = '',
   socialLinks = [],
 }) => {
   const currentYear = new Date().getFullYear()
@@ -25,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-title">{companyName}</h3>
+            <Logo width={160} height={120} />
             <p className="footer-tagline">Transforming businesses with AI</p>
           </div>
 

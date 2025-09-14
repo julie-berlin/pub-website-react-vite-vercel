@@ -12,7 +12,7 @@ import {
   faGlobe,
   faGraduationCap,
   faWrench,
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/pro-duotone-svg-icons'
 
 // Add icons to library
 library.add(
@@ -30,37 +30,21 @@ library.add(
   faWrench,
 )
 
-// Export icon mapping for easy replacement when Pro icons are available
+// Export icon mapping with Pro duotone icons
 export const iconMap = {
   // Service icons for Landing Page 1
-  aiStrategy: ['fas', 'bullseye'],
-  mlSolutions: ['fas', 'robot'],
-  dataAnalytics: ['fas', 'chart-line'],
-  automation: ['fas', 'bolt'],
-  nlp: ['fas', 'comments'],
-  computerVision: ['fas', 'eye'],
+  aiStrategy: ['fad', 'bullseye'],
+  mlSolutions: ['fad', 'robot'],
+  dataAnalytics: ['fad', 'chart-line'],
+  automation: ['fad', 'bolt'],
+  nlp: ['fad', 'comments'],
+  computerVision: ['fad', 'eye'],
 
   // Service icons for Landing Page 2
-  research: ['fas', 'microscope'],
-  predictive: ['fas', 'chart-bar'],
-  ethics: ['fas', 'balance-scale'],
-  edgeAI: ['fas', 'globe'],
-  training: ['fas', 'graduation-cap'],
-  customModels: ['fas', 'wrench'],
+  research: ['fad', 'microscope'],
+  predictive: ['fad', 'chart-bar'],
+  ethics: ['fad', 'balance-scale'],
+  edgeAI: ['fad', 'globe'],
+  training: ['fad', 'graduation-cap'],
+  customModels: ['fad', 'wrench'],
 } as const
-
-// When Pro duotone icons are available, update this to:
-// export const iconMap = {
-//   aiStrategy: ['fad', 'bullseye'] as const,
-//   mlSolutions: ['fad', 'robot'] as const,
-//   dataAnalytics: ['fad', 'chart-line'] as const,
-//   automation: ['fad', 'bolt'] as const,
-//   nlp: ['fad', 'comments'] as const,
-//   computerVision: ['fad', 'eye'] as const,
-//   research: ['fad', 'microscope'] as const,
-//   predictive: ['fad', 'chart-bar'] as const,
-//   ethics: ['fad', 'balance-scale'] as const,
-//   edgeAI: ['fad', 'globe'] as const,
-//   training: ['fad', 'graduation-cap'] as const,
-//   customModels: ['fad', 'wrench'] as const,
-// }

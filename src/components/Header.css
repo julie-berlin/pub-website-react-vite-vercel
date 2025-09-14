@@ -17,14 +17,13 @@
   min-height: 60px;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  transition: transform 0.3s ease;
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.logo:hover {
+.logo-link:hover {
   transform: scale(1.05);
 }
 
