@@ -6,6 +6,7 @@ import Demo from '@components/Demo'
 import BusinessInfo from '@components/BusinessInfo'
 import CTABanner from '@components/CTABanner'
 import Footer from '@components/Footer'
+import { iconMap } from '@utils/fontawesome'
 import '@styles/theme1.css'
 
 const LandingPage1 = () => {
@@ -21,37 +22,37 @@ const LandingPage1 = () => {
       id: 'ai-strategy',
       title: 'AI Strategy Consulting',
       description: 'Develop comprehensive AI strategies aligned with your business goals and objectives.',
-      icon: '🎯',
+      icon: iconMap.aiStrategy,
     },
     {
       id: 'ml-solutions',
       title: 'Machine Learning Solutions',
       description: 'Custom ML models designed to solve your specific business challenges.',
-      icon: '🤖',
+      icon: iconMap.mlSolutions,
     },
     {
       id: 'data-analytics',
       title: 'Advanced Data Analytics',
       description: 'Transform raw data into actionable insights with our advanced analytics platform.',
-      icon: '📊',
+      icon: iconMap.dataAnalytics,
     },
     {
       id: 'automation',
       title: 'Process Automation',
       description: 'Streamline operations and reduce costs with intelligent automation solutions.',
-      icon: '⚡',
+      icon: iconMap.automation,
     },
     {
       id: 'nlp',
       title: 'Natural Language Processing',
       description: 'Leverage NLP to understand and process human language at scale.',
-      icon: '💬',
+      icon: iconMap.nlp,
     },
     {
       id: 'cv',
       title: 'Computer Vision',
       description: 'Extract valuable insights from images and videos with our CV solutions.',
-      icon: '👁️',
+      icon: iconMap.computerVision,
     },
   ]
 

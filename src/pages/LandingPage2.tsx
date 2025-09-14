@@ -6,6 +6,7 @@ import Demo from '@components/Demo'
 import BusinessInfo from '@components/BusinessInfo'
 import CTABanner from '@components/CTABanner'
 import Footer from '@components/Footer'
+import { iconMap } from '@utils/fontawesome'
 import '@styles/theme2.css'
 
 const LandingPage2 = () => {
@@ -21,37 +22,37 @@ const LandingPage2 = () => {
       id: 'ai-research',
       title: 'AI Research & Development',
       description: 'Pioneering research in artificial intelligence to solve tomorrow\'s challenges today.',
-      icon: '🔬',
+      icon: iconMap.research,
     },
     {
       id: 'predictive',
       title: 'Predictive Analytics',
       description: 'Forecast trends and behaviors with our state-of-the-art predictive models.',
-      icon: '📈',
+      icon: iconMap.predictive,
     },
     {
       id: 'ai-ethics',
       title: 'AI Ethics & Governance',
       description: 'Ensure responsible AI deployment with our ethics and governance framework.',
-      icon: '⚖️',
+      icon: iconMap.ethics,
     },
     {
       id: 'edge-ai',
       title: 'Edge AI Solutions',
       description: 'Deploy AI at the edge for real-time processing and reduced latency.',
-      icon: '🌐',
+      icon: iconMap.edgeAI,
     },
     {
       id: 'ai-training',
       title: 'AI Training & Education',
       description: 'Empower your team with comprehensive AI training programs.',
-      icon: '🎓',
+      icon: iconMap.training,
     },
     {
       id: 'custom-models',
       title: 'Custom AI Models',
       description: 'Tailored AI models built specifically for your unique business requirements.',
-      icon: '🛠️',
+      icon: iconMap.customModels,
     },
   ]
 
