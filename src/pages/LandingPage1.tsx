@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '@components/Header'
 import Hero from '@components/Hero'
-import DarkBanner from '@components/DarkBanner'
+import PortfolioBanner from '@components/PortfolioBanner'
 import Services from '@components/Services'
 import Demo from '@components/Demo'
 import BusinessInfo from '@components/BusinessInfo'
@@ -96,15 +96,14 @@ const LandingPage1 = () => {
         onCtaClick={handleScheduleConsultation}
       />
 
-      <DarkBanner
+      <PortfolioBanner
         title="Proven Results"
-        subtitle="Portfolio of Success"
+        subtitle="<design and layout in progress>"
         text="We've helped businesses transform their operations with AI-powered solutions"
         stats={[
           { number: "50+", label: "Projects Delivered" },
           { number: "95%", label: "Client Satisfaction" },
           { number: "3x", label: "Average ROI" },
-          { number: "24/7", label: "Support" }
         ]}
       />
 

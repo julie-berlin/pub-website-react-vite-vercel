@@ -1,6 +1,6 @@
-import './DarkBanner.css'
+import './PortfolioBanner.css'
 
-interface DarkBannerProps {
+interface PortfolioBannerProps {
   title?: string
   subtitle?: string
   text?: string
@@ -10,22 +10,22 @@ interface DarkBannerProps {
   }>
 }
 
-const DarkBanner: React.FC<DarkBannerProps> = ({
+const PortfolioBanner: React.FC<PortfolioBannerProps> = ({
   title,
   subtitle,
   text,
   stats,
 }) => {
   return (
-    <section className="dark-banner">
+    <section id="portfolio" className="portfolio-banner">
       <div className="container">
-        <div className="dark-banner-content">
-          {title && <h2 className="dark-banner-title">{title}</h2>}
-          {subtitle && <h3 className="dark-banner-subtitle">{subtitle}</h3>}
-          {text && <p className="dark-banner-text">{text}</p>}
+        <div className="portfolio-banner-content">
+          {title && <h2 className="portfolio-banner-title">{title}</h2>}
+          {subtitle && <h3 className="portfolio-banner-subtitle">{subtitle}</h3>}
+          {text && <p className="portfolio-banner-text">{text}</p>}
 
           {stats && stats.length > 0 && (
-            <div className="dark-banner-stats">
+            <div className="portfolio-banner-stats">
               {stats.map((stat, index) => (
                 <div key={index} className="stat-item">
                   <div className="stat-number">{stat.number}</div>
@@ -40,4 +40,4 @@ const DarkBanner: React.FC<DarkBannerProps> = ({
   )
 }
 
-export default DarkBanner
+export default PortfolioBanner
