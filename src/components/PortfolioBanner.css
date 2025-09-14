@@ -1,18 +1,18 @@
-.dark-banner {
-  padding: 4rem 0;
+.portfolio-banner {
+  padding: 4rem 0 6rem;
   background: var(--rich-black);
   color: white;
   text-align: center;
   position: relative;
 }
 
-.dark-banner-content {
+.portfolio-banner-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.dark-banner-title {
+.portfolio-banner-title {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   color: white;
@@ -20,7 +20,7 @@
   line-height: 1.2;
 }
 
-.dark-banner-subtitle {
+.portfolio-banner-subtitle {
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   color: var(--jasmine);
@@ -28,7 +28,7 @@
   line-height: 1.3;
 }
 
-.dark-banner-text {
+.portfolio-banner-text {
   font-size: clamp(1rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
@@ -36,7 +36,7 @@
   margin-bottom: 2rem;
 }
 
-.dark-banner-stats {
+.portfolio-banner-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
@@ -65,11 +65,11 @@
 }
 
 @media (max-width: 768px) {
-  .dark-banner {
+  .portfolio-banner {
     padding: 3rem 0;
   }
 
-  .dark-banner-content {
+  .portfolio-banner-content {
     padding: 0 1rem;
   }
 }
