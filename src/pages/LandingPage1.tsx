@@ -107,8 +107,8 @@ const LandingPage1 = () => {
 
       <PortfolioBanner
         title="Proven Results"
-        subtitle="<design and layout in progress>"
-        text="We've helped businesses transform their operations with AI-powered solutions"
+        subtitle="Transforming businesses across industries with AI-powered solutions"
+        text="We've helped businesses unlock new capabilities and drive measurable outcomes through intelligent automation and data-driven insights"
         stats={[
           { number: "50+", label: "Projects Delivered" },
           { number: "95%", label: "Client Satisfaction" },

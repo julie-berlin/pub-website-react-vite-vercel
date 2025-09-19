@@ -1,12 +1,13 @@
 .portfolio-carousel-section {
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl) 0 var(--spacing-3xl) 0;
   background: var(--section-background);
   position: relative;
+  overflow: visible;
 }
 
 .portfolio-carousel-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .portfolio-carousel-header .section-title {
@@ -26,11 +27,30 @@
 
 .portfolio-carousel-container {
   position: relative;
-  overflow: hidden;
-  padding: var(--spacing-sm) 0;
+  padding: 0;
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  width: 100%;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+
+  /* Responsive gap adjustments */
+}
+
+/* Large desktop: More space between controls */
+@media (min-width: 1400px) {
+  .portfolio-carousel-container {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Tablet: Reduce gap */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .portfolio-carousel-container {
+    gap: var(--spacing-sm);
+  }
 }
 
 .carousel-nav-button {
@@ -85,34 +105,76 @@
   display: flex;
   gap: var(--spacing-sm);
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   scroll-behavior: smooth;
-  padding: var(--spacing-sm);
-  margin: 0 calc(-1 * var(--spacing-sm));
+  padding: var(--spacing-md);
   flex: 1;
+  max-width: calc(100% - 120px); /* Account for nav buttons */
+  min-height: 480px;
+  align-items: flex-start;
+  position: relative;
 
-  /* Custom scrollbar styling */
-  scrollbar-width: thin;
-  scrollbar-color: var(--pistachio) var(--platinum);
+  /* Touch interaction improvements */
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Responsive behavior: Desktop shows ~3.4 cards */
 }
 
+/* Large desktop: Show ~3.2 larger cards */
+@media (min-width: 1400px) {
+  .portfolio-carousel {
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin: 0 calc(-1 * var(--spacing-md));
+  }
+}
+
+/* Medium desktop: Show ~3.7 cards */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .portfolio-carousel {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Tablet: Show ~2.5 cards */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .portfolio-carousel {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Hide webkit scrollbar */
 .portfolio-carousel::-webkit-scrollbar {
-  height: 8px;
+  display: none;
 }
 
-.portfolio-carousel::-webkit-scrollbar-track {
-  background: var(--platinum);
-  border-radius: var(--radius-sm);
+/* Fade overlays at carousel container edges */
+.portfolio-carousel-container::before,
+.portfolio-carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.portfolio-carousel::-webkit-scrollbar-thumb {
-  background: var(--pistachio);
-  border-radius: var(--radius-sm);
-  transition: background var(--transition-base);
+.portfolio-carousel-container::before {
+  left: 60px; /* Position after left nav button */
+  background: linear-gradient(to right, var(--section-background), transparent);
 }
 
-.portfolio-carousel::-webkit-scrollbar-thumb:hover {
-  background: var(--pistachio-dark);
+.portfolio-carousel-container::after {
+  right: 60px; /* Position before right nav button */
+  background: linear-gradient(to left, var(--section-background), transparent);
 }
 
 /* Focus styles for keyboard navigation */
