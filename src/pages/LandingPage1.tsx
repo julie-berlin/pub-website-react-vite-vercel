@@ -133,9 +133,10 @@ const LandingPage1 = () => {
 
       <Footer
         companyName="eve.ai"
-        email="betg@eve-insight.ai"
-        phone="katg@eve-insight.ai"
-        address="880 Harrison St, Leesburg, VA 20175"
+        meetingLink="Schedule a Meeting"
+        email="hello@eve-insights.ai"
+        address={`880 Harrison St.
+Leesburg, VA 20175`}
       />
     </div>
   )
