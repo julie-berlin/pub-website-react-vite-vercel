@@ -9,7 +9,8 @@
 }
 
 .demo-content {
-  max-width: 900px;
+  max-width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -95,4 +96,320 @@
     transform: scale(0.95);
     opacity: 1;
   }
+}
+
+/* Tableau iframe container styles */
+.demo-tableau-container {
+  position: relative;
+  width: 100%;
+  background: var(--card-background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  min-height: 60vh;
+}
+
+/* Header controls for button */
+.demo-header-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+/* New tab button */
+.demo-new-tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.demo-new-tab-button:hover {
+  background: #f5f5f5;
+}
+
+.demo-new-tab-button:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Responsive iframe wrapper optimized for Tableau */
+.demo-iframe {
+  width: 122%; /* Calculated: 100% / 0.82 */
+  height: 77vh; /* Adjusted height */
+  min-height: 620px; /* Proportionally increased */
+  max-height: 980px; /* Proportionally increased */
+  border: none;
+  display: block;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  transform: scale(0.82); /* More aggressive scaling to fit content */
+  transform-origin: top left;
+}
+
+/* Container needs extra space for scaled iframe */
+.demo-tableau-container {
+  position: relative;
+  width: 100%;
+  background: var(--card-background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  height: 62vh;
+  max-height: 780px;
+  padding: 0;
+}
+
+.demo-iframe-hidden {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loading state */
+.demo-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-background);
+  z-index: 1;
+  gap: 1.5rem;
+}
+
+.demo-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.demo-loading p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Fallback content */
+.demo-fallback {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--card-background);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-fallback-content {
+  max-width: 600px;
+}
+
+.demo-fallback h3 {
+  color: var(--text-color);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.demo-fallback p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.demo-fallback ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  text-align: left;
+  display: inline-block;
+}
+
+.demo-fallback li {
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.demo-fallback li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.demo-external-link {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.demo-external-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  opacity: 0.9;
+}
+
+.demo-external-link:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .demo-iframe {
+    width: 125%; /* 100% / 0.8 */
+    height: 69vh; /* Compensated for 0.8 scale */
+    min-height: 563px; /* Compensated for 0.8 scale */
+    transform: scale(0.8);
+  }
+
+  .demo-tableau-container {
+    height: 55vh;
+    max-height: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-content {
+    max-width: 98%;
+    padding: 0 1rem;
+  }
+
+  .demo-iframe {
+    width: 133%; /* 100% / 0.75 */
+    height: 67vh; /* Compensated for 0.75 scale */
+    min-height: 533px; /* Compensated for 0.75 scale */
+    transform: scale(0.75);
+  }
+
+  .demo-tableau-container {
+    height: 50vh;
+    max-height: 500px;
+    border-radius: var(--radius-md);
+  }
+
+  .demo-fallback {
+    padding: 2rem 1.5rem;
+    min-height: 50vh;
+  }
+
+  .demo-fallback h3 {
+    font-size: 1.5rem;
+  }
+
+  .demo-external-link {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-iframe {
+    width: 143%; /* 100% / 0.7 */
+    height: 64vh; /* Compensated for 0.7 scale */
+    min-height: 500px; /* Compensated for 0.7 scale */
+    transform: scale(0.7);
+  }
+
+  .demo-tableau-container {
+    height: 45vh;
+    max-height: 400px;
+  }
+
+  .demo-fallback {
+    padding: 2rem 1rem;
+    min-height: 45vh;
+  }
+
+  .demo-fallback h3 {
+    font-size: 1.25rem;
+  }
+
+  .demo-fallback p,
+  .demo-fallback li {
+    font-size: 0.875rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .demo-tableau-container,
+  .demo-fallback {
+    border: 2px solid var(--text-color);
+  }
+
+  .demo-external-link {
+    border: 2px solid transparent;
+  }
+
+  .demo-external-link:hover {
+    border-color: var(--text-color);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .demo-spinner {
+    animation: none;
+    opacity: 0.8;
+  }
+
+  .demo-iframe {
+    transition: none;
+  }
+
+  .demo-external-link {
+    transition: none;
+  }
+
+  .demo-external-link:hover {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.demo-iframe:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Screen reader only class for additional context */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
