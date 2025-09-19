@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '@components/Header'
 import Hero from '@components/Hero'
 import PortfolioBanner from '@components/PortfolioBanner'
@@ -7,10 +7,13 @@ import Demo from '@components/Demo'
 import BusinessInfo from '@components/BusinessInfo'
 import CTABanner from '@components/CTABanner'
 import Footer from '@components/Footer'
+import SchedulingModal from '@components/SchedulingModal'
 import { iconMap } from '@utils/fontawesome'
 import '@styles/theme1.css'
 
 const LandingPage1 = () => {
+  const [isSchedulingOpen, setIsSchedulingOpen] = useState(false)
+
   useEffect(() => {
     document.body.className = 'theme1'
     return () => {
@@ -81,7 +84,7 @@ const LandingPage1 = () => {
   ]
 
   const handleScheduleConsultation = () => {
-    window.location.href = 'mailto:kat@eve-insight.ai'
+    setIsSchedulingOpen(true)
   }
 
   return (
@@ -94,6 +97,12 @@ const LandingPage1 = () => {
         text="We build secure, tailored AI systems using your data to make smarter decisions faster. From intelligent automation to predictive insights and custom dashboards — <em>we deliver the competitive edge you need</em>."
         ctaText="Book Your Strategy Call"
         onCtaClick={handleScheduleConsultation}
+      />
+
+      <SchedulingModal
+        isOpen={isSchedulingOpen}
+        onClose={() => setIsSchedulingOpen(false)}
+        calUsername="eve-ai"
       />
 
       <PortfolioBanner
@@ -137,6 +146,7 @@ const LandingPage1 = () => {
         email="hello@eve-insights.ai"
         address={`880 Harrison St.
 Leesburg, VA 20175`}
+        calUsername="eve-ai"
       />
     </div>
   )

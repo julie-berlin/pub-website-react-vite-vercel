@@ -1,0 +1,220 @@
+.scheduling-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(9, 28, 38, 0.75); /* Using rich-black with opacity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scheduling-modal {
+  background: var(--background-color);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.scheduling-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px; /* WCAG minimum touch target size */
+  height: 44px;
+  border: none;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.scheduling-modal-close:hover {
+  background: var(--border-color);
+  transform: scale(1.1);
+}
+
+.scheduling-modal-close:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.scheduling-modal-close:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.scheduling-modal-close:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.scheduling-modal-content {
+  padding: 2rem;
+  overflow: auto;
+  max-height: 90vh;
+}
+
+.scheduling-modal-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 0.5rem;
+  padding-right: 3rem; /* Space for close button */
+}
+
+.scheduling-modal-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem;
+}
+
+.cal-embed-container {
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .scheduling-modal-overlay {
+    padding: 0;
+  }
+
+  .scheduling-modal {
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .scheduling-modal-content {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scheduling-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .scheduling-modal-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cal-embed-container {
+    flex: 1;
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .scheduling-modal {
+    border: 2px solid var(--text-color);
+  }
+
+  .scheduling-modal-close {
+    border: 2px solid var(--text-color);
+  }
+
+  .cal-embed-container {
+    border: 2px solid var(--text-color);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .scheduling-modal-overlay,
+  .scheduling-modal {
+    animation: none;
+  }
+
+  .scheduling-modal-close {
+    transition: none;
+  }
+}
+
+/* Focus visible polyfill for older browsers */
+.js-focus-visible .scheduling-modal-close:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Ensure modal content is scrollable with keyboard */
+.scheduling-modal-content:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: -3px;
+}
+
+/* Improve Cal.com embed accessibility */
+.cal-embed-container iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading state */
+.cal-embed-container.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--section-background);
+}
+
+.cal-embed-container.loading::after {
+  content: "Loading calendar...";
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
