@@ -1,5 +1,6 @@
 import './Footer.css'
 import Logo from './Logo'
+import { preloadCalcom, openCalcomPopup } from '../utils/calcom'
 
 interface FooterProps {
   companyName?: string
@@ -7,6 +8,7 @@ interface FooterProps {
   phone?: string
   address?: string
   meetingLink?: string
+  calUsername?: string
   socialLinks?: {
     platform: string
     url: string
@@ -18,9 +20,15 @@ const Footer: React.FC<FooterProps> = ({
   email = 'hello@eve-insight.ai',
   address = '',
   meetingLink = 'Schedule a Meeting',
+  calUsername = 'eve-ai',
   socialLinks = [],
 }) => {
   const currentYear = new Date().getFullYear()
+
+  const handleScheduleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openCalcomPopup(calUsername);
+  }
 
   return (
     <footer id="contact" className="footer">
@@ -34,7 +42,14 @@ const Footer: React.FC<FooterProps> = ({
           <div className="footer-section">
             <h4 className="footer-subtitle">Contact Information</h4>
             <div className="contact-info">
-              <a href="#" className="contact-link">
+              <a
+                href="#schedule"
+                className="contact-link"
+                onClick={handleScheduleClick}
+                onMouseEnter={preloadCalcom}
+                onFocus={preloadCalcom}
+                aria-label="Schedule a meeting with eve.ai"
+              >
                 {meetingLink}
               </a>
               <a href={`mailto:${email}`} className="contact-link">

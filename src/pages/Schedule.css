@@ -1,0 +1,210 @@
+.schedule-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color);
+}
+
+.schedule-main {
+  flex: 1;
+  padding: 6rem 0 4rem;
+}
+
+.schedule-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.schedule-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
+
+.schedule-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.schedule-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.schedule-benefits {
+  background: var(--section-background);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.benefits-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 1.5rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.benefits-list strong {
+  display: block;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.schedule-calendar {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  min-height: 650px;
+  box-shadow: var(--shadow-md);
+}
+
+.schedule-footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.schedule-contact {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+.contact-email {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.contact-email:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.contact-email:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .schedule-content {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-benefits {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-main {
+    padding: 4rem 0 2rem;
+  }
+
+  .schedule-title {
+    font-size: 2rem;
+  }
+
+  .schedule-description {
+    font-size: 1.125rem;
+    padding: 0 1rem;
+  }
+
+  .schedule-content {
+    gap: 2rem;
+  }
+
+  .schedule-calendar {
+    padding: 1rem;
+    min-height: 500px;
+  }
+
+  .benefits-title {
+    font-size: 1.25rem;
+  }
+
+  .schedule-contact {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-title {
+    font-size: 1.75rem;
+  }
+
+  .schedule-description {
+    font-size: 1rem;
+  }
+
+  .schedule-benefits {
+    padding: 1.5rem;
+  }
+
+  .benefits-list li {
+    font-size: 0.875rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .schedule-benefits,
+  .schedule-calendar {
+    border: 2px solid var(--text-color);
+  }
+
+  .contact-email:focus {
+    outline-width: 4px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .contact-email {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .schedule-page {
+    background: white;
+  }
+
+  .schedule-calendar {
+    display: none;
+  }
+
+  .schedule-footer {
+    page-break-before: avoid;
+  }
+}
