@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Cal from '@calcom/embed-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { getContent } from '../content';
 import './Schedule.css';
 
 interface ScheduleProps {
@@ -10,9 +11,10 @@ interface ScheduleProps {
 }
 
 const Schedule: React.FC<ScheduleProps> = ({
-  calUsername = 'eve-ai',
+  calUsername,
   eventSlug
 }) => {
+  const content = getContent('en');
   useEffect(() => {
     // Set page title for accessibility
     document.title = 'Schedule a Consultation - eve.ai';
@@ -26,7 +28,8 @@ const Schedule: React.FC<ScheduleProps> = ({
     };
   }, []);
 
-  const calLink = eventSlug ? `${calUsername}/${eventSlug}` : calUsername;
+  const username = calUsername || content.businessInfo.social.calendar.username;
+  const calLink = eventSlug ? `${username}/${eventSlug}` : username;
 
   return (
     <div className="schedule-page">
@@ -81,8 +84,8 @@ const Schedule: React.FC<ScheduleProps> = ({
           <div className="schedule-footer">
             <p className="schedule-contact">
               Have questions? Email us at{' '}
-              <a href="mailto:hello@eve-insights.ai" className="contact-email">
-                hello@eve-insights.ai
+              <a href={`mailto:${content.businessInfo.contact.email}`} className="contact-email">
+                {content.businessInfo.contact.email}
               </a>
             </p>
           </div>
@@ -90,8 +93,11 @@ const Schedule: React.FC<ScheduleProps> = ({
       </main>
 
       <Footer
-        email="hello@eve-insights.ai"
-        address="880 Harrison St., Leesburg, VA 20175"
+        companyName={content.businessInfo.company.name}
+        email={content.businessInfo.contact.email}
+        address={content.businessInfo.contact.address}
+        meetingLink={content.businessInfo.social.calendar.link}
+        calUsername={content.businessInfo.social.calendar.username}
       />
     </div>
   );

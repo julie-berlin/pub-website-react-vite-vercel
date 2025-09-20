@@ -12,6 +12,8 @@ import {
   faGlobe,
   faGraduationCap,
   faWrench,
+  faChevronLeft,
+  faChevronRight,
 } from '@fortawesome/pro-duotone-svg-icons'
 
 // Add icons to library
@@ -28,6 +30,8 @@ library.add(
   faGlobe,
   faGraduationCap,
   faWrench,
+  faChevronLeft,
+  faChevronRight,
 )
 
 // Export icon mapping with Pro duotone icons
@@ -47,4 +51,8 @@ export const iconMap = {
   edgeAI: ['fad', 'globe'],
   training: ['fad', 'graduation-cap'],
   customModels: ['fad', 'wrench'],
+
+  // Carousel navigation icons
+  chevronLeft: ['fad', 'chevron-left'],
+  chevronRight: ['fad', 'chevron-right'],
 } as const

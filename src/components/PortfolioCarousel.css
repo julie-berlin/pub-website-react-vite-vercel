@@ -1,0 +1,298 @@
+.portfolio-carousel-section {
+  padding: 6rem 0 var(--spacing-2xl) 0;
+  background: var(--rich-black);
+  position: relative;
+  overflow: visible;
+}
+
+.portfolio-carousel-header {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.portfolio-carousel-header .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--spacing-sm);
+}
+
+.portfolio-carousel-header .section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.portfolio-carousel-container {
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+
+  /* Responsive gap adjustments */
+}
+
+/* Large desktop: More space between controls */
+@media (min-width: 1400px) {
+  .portfolio-carousel-container {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Tablet: Reduce gap */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .portfolio-carousel-container {
+    gap: var(--spacing-sm);
+  }
+}
+
+.carousel-nav-button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--medium-gray);
+  color: var(--sandy-brown);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-nav-button:hover:not(:disabled) {
+  background: var(--sandy-brown);
+  color: var(--rich-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.carousel-nav-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--ghost-white);
+  color: var(--text-light);
+}
+
+.carousel-nav-button:focus {
+  outline: 3px solid var(--tang-blue);
+  outline-offset: 2px;
+}
+
+.carousel-nav-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.carousel-nav-button:focus-visible {
+  outline: 3px solid var(--tang-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(226, 61, 24, 0.2);
+}
+
+.portfolio-carousel {
+  display: flex;
+  gap: var(--spacing-sm);
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  padding: var(--spacing-md);
+  flex: 1;
+  max-width: calc(100% - 120px); /* Account for nav buttons */
+  min-height: 480px;
+  align-items: flex-start;
+  position: relative;
+
+  /* Touch interaction improvements */
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Responsive behavior: Desktop shows ~3.4 cards */
+}
+
+/* Large desktop: Show ~3.2 larger cards */
+@media (min-width: 1400px) {
+  .portfolio-carousel {
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin: 0 calc(-1 * var(--spacing-md));
+  }
+}
+
+/* Medium desktop: Show ~3.7 cards */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .portfolio-carousel {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Tablet: Show ~2.5 cards */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .portfolio-carousel {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Hide webkit scrollbar */
+.portfolio-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade overlays at carousel container edges */
+.portfolio-carousel-container::before,
+.portfolio-carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.portfolio-carousel-container::before {
+  left: 60px; /* Position after left nav button */
+  background: linear-gradient(to right, var(--rich-black), transparent);
+}
+
+.portfolio-carousel-container::after {
+  right: 60px; /* Position before right nav button */
+  background: linear-gradient(to left, var(--rich-black), transparent);
+}
+
+/* Focus styles for keyboard navigation */
+.portfolio-carousel:focus {
+  outline: 3px solid var(--tang-blue);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
+.portfolio-carousel:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.portfolio-carousel:focus-visible {
+  outline: 3px solid var(--tang-blue);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(226, 61, 24, 0.2);
+}
+
+/* Ensure cards don't shrink */
+.portfolio-carousel .project-card {
+  flex-shrink: 0;
+}
+
+/* Pagination indicators */
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-lg);
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--medium-gray);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  padding: 0;
+}
+
+.pagination-dot:hover {
+  background: var(--sandy-brown);
+  transform: scale(1.2);
+}
+
+.pagination-dot.active {
+  background: var(--sandy-brown);
+  transform: scale(1.3);
+}
+
+.pagination-dot:focus {
+  outline: 2px solid var(--sandy-brown);
+  outline-offset: 3px;
+}
+
+.pagination-dot:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.pagination-dot:focus-visible {
+  outline: 2px solid var(--sandy-brown);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(249, 178, 127, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portfolio-carousel-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .portfolio-carousel-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .portfolio-carousel-container {
+    gap: var(--spacing-sm);
+  }
+
+  .carousel-nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .portfolio-carousel {
+    padding: var(--spacing-xs);
+    margin: 0 calc(-1 * var(--spacing-xs));
+    gap: var(--spacing-xs);
+  }
+
+  .carousel-pagination {
+    margin-top: var(--spacing-md);
+  }
+
+  .pagination-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Smooth scroll for better UX */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-carousel {
+    scroll-behavior: auto;
+  }
+
+  .pagination-dot {
+    transition: none;
+  }
+
+  .pagination-dot:hover,
+  .pagination-dot.active {
+    transform: none;
+  }
+}

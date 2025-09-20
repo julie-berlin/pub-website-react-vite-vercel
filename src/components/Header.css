@@ -91,6 +91,12 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
+@media (min-width: 769px) {
+  .nav {
+    padding: 0.75rem 0;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;

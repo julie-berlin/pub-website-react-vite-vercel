@@ -1,3 +1,5 @@
+import { config } from '../config';
+
 let calcomLoaded = false;
 let calcomLoadPromise: Promise<void> | null = null;
 
@@ -19,19 +21,19 @@ export const loadCalcom = (): Promise<void> => {
 
       // Initialize Cal.com after script loads
       if (typeof window !== 'undefined' && (window as any).Cal) {
-        (window as any).Cal('init', { origin: 'https://cal.com' });
+        (window as any).Cal('init', { origin: config.cal.origin });
       }
 
       resolve();
     };
-    script.src = 'https://app.cal.com/embed/embed.js';
+    script.src = config.cal.embedScript;
     document.head.appendChild(script);
   });
 
   return calcomLoadPromise;
 };
 
-export const openCalcomPopup = async (username: string = 'eve-ai', eventSlug?: string) => {
+export const openCalcomPopup = async (username: string = config.cal.username, eventSlug?: string) => {
   await loadCalcom();
 
   if (typeof window !== 'undefined' && (window as any).Cal) {
@@ -40,8 +42,8 @@ export const openCalcomPopup = async (username: string = 'eve-ai', eventSlug?: s
     // Get the primary color from CSS variables
     const computedStyle = getComputedStyle(document.documentElement);
     const primaryColor = computedStyle.getPropertyValue('--primary-color').trim() ||
-                        computedStyle.getPropertyValue('--chili').trim() ||
-                        '#E23D18';
+                        computedStyle.getPropertyValue('--tang-blue').trim() ||
+                        '#225CD9';
 
     (window as any).Cal('openModal', {
       calLink,
@@ -68,7 +70,7 @@ export const preloadCalcom = () => {
 
 export const embedCalcom = async (
   elementId: string,
-  username: string = 'eve-ai',
+  username: string = config.cal.username,
   eventSlug?: string
 ) => {
   await loadCalcom();
@@ -79,8 +81,8 @@ export const embedCalcom = async (
     // Get the primary color from CSS variables
     const computedStyle = getComputedStyle(document.documentElement);
     const primaryColor = computedStyle.getPropertyValue('--primary-color').trim() ||
-                        computedStyle.getPropertyValue('--chili').trim() ||
-                        '#E23D18';
+                        computedStyle.getPropertyValue('--tang-blue').trim() ||
+                        '#225CD9';
 
     (window as any).Cal('inline', {
       elementOrSelector: `#${elementId}`,

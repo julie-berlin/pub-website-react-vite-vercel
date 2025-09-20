@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Cal, { getCalApi } from '@calcom/embed-react';
+import { config } from '../config';
 import './SchedulingModal.css';
 
 interface SchedulingModalProps {
@@ -12,7 +13,7 @@ interface SchedulingModalProps {
 const SchedulingModal: React.FC<SchedulingModalProps> = ({
   isOpen,
   onClose,
-  calUsername = 'eve-ai',
+  calUsername = config.cal.username,
   eventSlug
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -26,8 +27,8 @@ const SchedulingModal: React.FC<SchedulingModalProps> = ({
       // Get the primary color from CSS variables
       const computedStyle = getComputedStyle(document.documentElement);
       const primaryColor = computedStyle.getPropertyValue('--primary-color').trim() ||
-                          computedStyle.getPropertyValue('--chili').trim() ||
-                          '#E23D18';
+                          computedStyle.getPropertyValue('--tang-blue').trim() ||
+                          '#225CD9';
 
       cal('ui', {
         theme: 'light',
@@ -51,7 +52,7 @@ const SchedulingModal: React.FC<SchedulingModalProps> = ({
       // Focus the close button when modal opens
       setTimeout(() => {
         closeButtonRef.current?.focus();
-      }, 100);
+      }, config.timeouts.modalTransition);
 
       // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden';

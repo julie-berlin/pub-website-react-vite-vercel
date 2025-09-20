@@ -1,12 +1,19 @@
 import './Footer.css'
 import Logo from './Logo'
 import { preloadCalcom, openCalcomPopup } from '../utils/calcom'
+import { config } from '../config'
 
 interface FooterProps {
   companyName?: string
   email?: string
   phone?: string
-  address?: string
+  address?: {
+    street: string
+    city: string
+    state: string
+    zip: string
+    country: string
+  }
   meetingLink?: string
   calUsername?: string
   socialLinks?: {
@@ -16,11 +23,11 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-  companyName = 'eve.ai',
-  email = 'hello@eve-insight.ai',
-  address = '',
-  meetingLink = 'Schedule a Meeting',
-  calUsername = 'eve-ai',
+  companyName,
+  email,
+  address,
+  meetingLink,
+  calUsername,
   socialLinks = [],
 }) => {
   const currentYear = new Date().getFullYear()
@@ -35,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <Logo width={160} height={120} />
+            <Logo width={config.dimensions.logo.footer.width} height={config.dimensions.logo.footer.height} />
             <p className="footer-tagline">Transforming businesses with AI</p>
           </div>
 
@@ -55,7 +62,12 @@ const Footer: React.FC<FooterProps> = ({
               <a href={`mailto:${email}`} className="contact-link">
                 {email}
               </a>
-              <address className="contact-address">{address}</address>
+              {address && (
+                <address className="contact-address">
+                  <div>{address.street}</div>
+                  <div>{address.city}, {address.state} {address.zip}</div>
+                </address>
+              )}
             </div>
           </div>
 

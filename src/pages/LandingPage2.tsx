@@ -126,7 +126,13 @@ const LandingPage2 = () => {
         companyName="eve.ai"
         email="hello@eve-insight.ai"
         phone="+1 (888) EVE-AI-00"
-        address="100 Innovation Drive, Silicon Valley, CA 94025"
+        address={{
+          street: "100 Innovation Drive",
+          city: "Silicon Valley",
+          state: "CA",
+          zip: "94025",
+          country: "USA"
+        }}
         socialLinks={[
           { platform: 'LinkedIn', url: 'https://linkedin.com/company/eve-ai' },
           { platform: 'Twitter', url: 'https://twitter.com/eve_ai' },

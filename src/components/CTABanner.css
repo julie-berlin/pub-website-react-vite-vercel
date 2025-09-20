@@ -51,8 +51,8 @@
   padding: 1.25rem 3rem;
   font-size: 1.1rem;
   font-weight: 600;
-  background: var(--pistachio-dark);
-  color: white;
+  background: var(--sandy-brown);
+  color: var(--rich-black);
   border-radius: var(--radius-xl);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-lg);
