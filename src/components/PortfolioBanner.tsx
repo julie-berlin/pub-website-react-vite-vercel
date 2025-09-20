@@ -1,5 +1,5 @@
 import PortfolioCarousel from './PortfolioCarousel'
-import { portfolioProjects } from '../data/portfolio'
+import { portfolio } from '../content/en'
 import './PortfolioBanner.css'
 
 interface PortfolioBannerProps {
@@ -40,9 +40,15 @@ const PortfolioBanner: React.FC<PortfolioBannerProps> = ({
       </div>
 
       <PortfolioCarousel
-        projects={portfolioProjects}
-        title="Featured Projects"
-        subtitle="Discover how we've transformed businesses across industries"
+        projects={portfolio.projects.map(p => ({
+          title: p.title,
+          coverImage: p.coverImage,
+          description: p.description,
+          tags: [...p.tags],
+          detailedDescription: p.detailedDescription
+        }))}
+        title={portfolio.title}
+        subtitle={portfolio.subtitle}
       />
     </section>
   )

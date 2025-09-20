@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gradient-light);
+  background: linear-gradient(135deg, var(--electric-blue) 0%, var(--ghost-white) 50%, var(--lavender-web) 100%);
   z-index: 1;
 }
 

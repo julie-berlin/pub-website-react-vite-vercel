@@ -1,25 +1,26 @@
 .portfolio-carousel-section {
-  padding: var(--spacing-2xl) 0 var(--spacing-3xl) 0;
-  background: var(--section-background);
+  padding: 6rem 0 var(--spacing-2xl) 0;
+  background: var(--rich-black);
   position: relative;
   overflow: visible;
 }
 
 .portfolio-carousel-header {
   text-align: center;
-  margin-bottom: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .portfolio-carousel-header .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: var(--text-color);
+  color: white;
   margin-bottom: var(--spacing-sm);
 }
 
 .portfolio-carousel-header .section-subtitle {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -58,8 +59,8 @@
   height: 48px;
   border: none;
   border-radius: 50%;
-  background: var(--card-background);
-  color: var(--primary-color);
+  background: var(--medium-gray);
+  color: var(--sandy-brown);
   box-shadow: var(--shadow-lg);
   cursor: pointer;
   display: flex;
@@ -73,8 +74,8 @@
 }
 
 .carousel-nav-button:hover:not(:disabled) {
-  background: var(--primary-color);
-  color: white;
+  background: var(--sandy-brown);
+  color: var(--rich-black);
   transform: translateY(-2px);
   box-shadow: var(--shadow-xl);
 }
@@ -82,12 +83,12 @@
 .carousel-nav-button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  background: var(--platinum);
+  background: var(--ghost-white);
   color: var(--text-light);
 }
 
 .carousel-nav-button:focus {
-  outline: 3px solid var(--chili);
+  outline: 3px solid var(--tang-blue);
   outline-offset: 2px;
 }
 
@@ -96,7 +97,7 @@
 }
 
 .carousel-nav-button:focus-visible {
-  outline: 3px solid var(--chili);
+  outline: 3px solid var(--tang-blue);
   outline-offset: 2px;
   box-shadow: 0 0 0 6px rgba(226, 61, 24, 0.2);
 }
@@ -169,17 +170,17 @@
 
 .portfolio-carousel-container::before {
   left: 60px; /* Position after left nav button */
-  background: linear-gradient(to right, var(--section-background), transparent);
+  background: linear-gradient(to right, var(--rich-black), transparent);
 }
 
 .portfolio-carousel-container::after {
   right: 60px; /* Position before right nav button */
-  background: linear-gradient(to left, var(--section-background), transparent);
+  background: linear-gradient(to left, var(--rich-black), transparent);
 }
 
 /* Focus styles for keyboard navigation */
 .portfolio-carousel:focus {
-  outline: 3px solid var(--chili);
+  outline: 3px solid var(--tang-blue);
   outline-offset: 4px;
   border-radius: var(--radius-md);
 }
@@ -189,7 +190,7 @@
 }
 
 .portfolio-carousel:focus-visible {
-  outline: 3px solid var(--chili);
+  outline: 3px solid var(--tang-blue);
   outline-offset: 4px;
   box-shadow: 0 0 0 6px rgba(226, 61, 24, 0.2);
 }
@@ -212,7 +213,7 @@
   height: 12px;
   border: none;
   border-radius: 50%;
-  background: var(--platinum);
+  background: var(--medium-gray);
   cursor: pointer;
   transition: all var(--transition-base);
   position: relative;
@@ -220,17 +221,17 @@
 }
 
 .pagination-dot:hover {
-  background: var(--pistachio);
+  background: var(--sandy-brown);
   transform: scale(1.2);
 }
 
 .pagination-dot.active {
-  background: var(--chili);
+  background: var(--sandy-brown);
   transform: scale(1.3);
 }
 
 .pagination-dot:focus {
-  outline: 2px solid var(--chili);
+  outline: 2px solid var(--sandy-brown);
   outline-offset: 3px;
 }
 
@@ -239,9 +240,9 @@
 }
 
 .pagination-dot:focus-visible {
-  outline: 2px solid var(--chili);
+  outline: 2px solid var(--sandy-brown);
   outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(226, 61, 24, 0.2);
+  box-shadow: 0 0 0 4px rgba(249, 178, 127, 0.2);
 }
 
 /* Responsive adjustments */

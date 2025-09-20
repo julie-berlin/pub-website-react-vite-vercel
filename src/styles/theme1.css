@@ -1,34 +1,41 @@
 .theme1 {
   /* eve.ai Brand Colors - From Color Palette */
   --rich-black: #091C26;
-  --chili: #E23D18;
-  --pistachio: #99C88B;
-  --pistachio-dark: #7BA268;
-  --office-green: #077113;
-  --jasmine: #FBDF74;
-  --jasmine-pale: #FDF6E3;
-  --platinum: #E5EBE7;
+  --medium-gray: #4A5A66;
+  --tang-blue: #225CD9;
+  --aero: #38C2E0;
+  --electric-blue: #83E6F2;
+  --pine-green: #098072;
+  --sandy-brown: #F9B27F;
+  --persian-orange: #DF8F56;
+  --light-orange: #FDD6B5;
+  --ghost-white: #F9FAFE;
+  --lavender-web: #E0E2F2;
+  --white: #ffffff;
+
 
   /* Primary Brand Colors */
-  --primary-color: var(--chili);
-  --secondary-color: var(--office-green);
-  --accent-color: var(--jasmine);
+  --primary-color: var(--tang-blue);
+  --secondary-color: var(--pine-green);
+  --accent-color: var(--sandy-brown);
 
   /* Light Theme Colors */
   --background-color: #ffffff;
   --text-color: var(--rich-black);
   --text-secondary: #2d3748;
   --text-light: #4a5568;
-  --border-color: var(--platinum);
-  --card-background: #ffffff;
+  --border-color: var(--ghost-white);
+  --card-background: var(--ghost-white);
+  --card-background-dark: var(--lavender-web);
+  --card-border-dark: var(--medium-gray);
   --header-background: rgba(255, 255, 255, 0.95);
-  --section-background: #fafafa;
+  --section-background: var(--ghost-white);
 
   /* Gradients - Subtle for light theme */
-  --gradient-primary: linear-gradient(135deg, var(--chili) 0%, var(--office-green) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--pistachio) 0%, var(--jasmine) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--platinum) 0%, #ffffff 100%);
-  --gradient-light: linear-gradient(135deg, var(--jasmine-pale) 0%, var(--background-color) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--tang-blue) 0%, var(--pine-green) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--aero) 0%, var(--sandy-brown) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--ghost-white) 0%, #ffffff 100%);
+  --gradient-light: linear-gradient(135deg, var(--sandy-brown-pale) 0%, var(--background-color) 100%);
 
   /* Light Theme Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(9, 28, 38, 0.04);
@@ -64,11 +71,11 @@
   --transition-slow: 0.5s ease;
 }
 
-  /* Global accessibility and responsive improvements */
-  scroll-behavior: smooth;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  min-height: 100vh;
+/* Global accessibility and responsive improvements */
+scroll-behavior: smooth;
+background-color: var(--background-color);
+color: var(--text-color);
+min-height: 100vh;
 }
 
 .theme1 * {

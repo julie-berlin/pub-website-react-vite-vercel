@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { config } from '../config'
 import './Demo.css'
 
 interface DemoProps {
@@ -24,7 +25,7 @@ const Demo: React.FC<DemoProps> = ({
         setIframeError(true)
         setIsLoading(false)
       }
-    }, 10000) // 10 second timeout
+    }, config.timeouts.iframeLoad)
 
     return () => clearTimeout(timeout)
   }, [isLoading])
@@ -41,13 +42,13 @@ const Demo: React.FC<DemoProps> = ({
 
   const handleOpenInNewTab = () => {
     window.open(
-      'https://public.tableau.com/views/PeopleandCulture_v2/HROverview?:language=en-US&:display_count=n&:origin=viz_share_link',
+      config.tableau.shareUrl,
       '_blank',
       'noopener,noreferrer'
     )
   }
 
-  const tableauContent = showTableauDemo && (
+  const tableauContent = (showTableauDemo && config.features.showTableauDemo) && (
     <div>
       <div className="demo-header-controls">
         <button
@@ -96,7 +97,7 @@ const Demo: React.FC<DemoProps> = ({
               <li>Diversity and inclusion analytics</li>
             </ul>
             <a
-              href="https://public.tableau.com/views/PeopleandCulture_v2/HROverview?:language=en-US&:display_count=n&:origin=viz_share_link"
+              href={config.tableau.shareUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="demo-external-link"
@@ -109,7 +110,7 @@ const Demo: React.FC<DemoProps> = ({
       )}
 
       <iframe
-        src="https://public.tableau.com/views/PeopleandCulture_v2/HROverview?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link&:embed=y&:showVizHome=no&:toolbar=no&:tabs=no&:refresh=yes&:loadOrderID=0&:display_spinner=no&:showAppBanner=false&:device=desktop&:size=1000,700"
+        src={config.tableau.embedUrl}
         className={`demo-iframe ${iframeError ? 'demo-iframe-hidden' : ''}`}
         allowFullScreen
         title="eve.ai HR Analytics Dashboard - Interactive data visualization showing people analytics and workforce insights"

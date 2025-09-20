@@ -4,6 +4,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/pro-duotone-svg-icon
 import { ProjectCard as ProjectCardType } from '../types/portfolio'
 import ProjectCard from './ProjectCard'
 import { shuffle } from '../utils/shuffle'
+import { config } from '../config'
 import './PortfolioCarousel.css'
 
 interface PortfolioCarouselProps {
@@ -25,7 +26,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const [shuffledProjects, setShuffledProjects] = useState<ProjectCardType[]>(projects)
 
-  const scrollAmount = 370 // Card width + margin
+  const scrollAmount = config.dimensions.carousel.scrollAmount
 
   const updateScrollButtons = () => {
     const carousel = carouselRef.current
@@ -37,8 +38,10 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({
     )
 
     // Calculate current slide based on scroll position
-    const slideIndex = Math.round(carousel.scrollLeft / scrollAmount)
-    setCurrentSlide(Math.min(slideIndex, shuffledProjects.length - 1))
+    // Use the visible card in the center of the viewport
+    const carouselCenter = carousel.scrollLeft + (carousel.clientWidth / 2)
+    const slideIndex = Math.round(carouselCenter / scrollAmount)
+    setCurrentSlide(Math.min(Math.max(0, slideIndex), shuffledProjects.length - 1))
   }
 
   const scrollLeft = () => {
@@ -56,6 +59,9 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({
   const scrollToSlide = (slideIndex: number) => {
     const carousel = carouselRef.current
     if (!carousel) return
+
+    // Update current slide immediately for responsive UI
+    setCurrentSlide(slideIndex)
     carousel.scrollTo({ left: slideIndex * scrollAmount, behavior: 'smooth' })
   }
 

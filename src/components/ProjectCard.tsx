@@ -85,7 +85,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   alt={project.title}
                   onLoad={handleImageLoad}
                   onError={handleImageError}
-                  style={{ display: imageLoading ? 'none' : 'block' }}
+                  className={`project-image ${imageLoading ? 'loading' : 'loaded'}`}
                 />
               )
             )}
